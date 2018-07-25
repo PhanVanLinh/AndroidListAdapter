@@ -10,7 +10,16 @@
         android:id="@+id/button_update_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         android:text="Update data" />
+
+    <Button
+        android:id="@+id/button_add_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add data"
+        app:layout_constraintTop_toBottomOf="@+id/button_update_data"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_main"
@@ -19,6 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_update_data" />
+        app:layout_constraintTop_toBottomOf="@id/button_add_data" />
 
 </android.support.constraint.ConstraintLayout>

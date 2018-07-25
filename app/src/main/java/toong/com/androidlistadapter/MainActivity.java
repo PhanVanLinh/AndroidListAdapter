@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ContactAdapter adapter;
+    private RecyclerView recyclerView;
+    private ContactAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adapter.submitList(getUpdatedData());
+            }
+        });
+
+
+        findViewById(R.id.button_add_data).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo update
             }
         });
     }
@@ -60,4 +68,6 @@ public class MainActivity extends AppCompatActivity {
         contacts.get(3).setPhoneNumber("33");
         return contacts;
     }
+
+
 }
