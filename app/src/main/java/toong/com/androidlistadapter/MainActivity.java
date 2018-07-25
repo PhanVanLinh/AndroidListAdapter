@@ -43,12 +43,17 @@ public class MainActivity extends AppCompatActivity {
         contacts.add(new Contact("D", "3"));
         contacts.add(new Contact("E", "4"));
         contacts.add(new Contact("F", "5"));
+        contacts.add(new Contact("G", "6"));
+        contacts.add(new Contact("H", "7"));
+        contacts.add(new Contact("I", "8"));
+        contacts.add(new Contact("J", "9"));
+        contacts.add(new Contact("K", "10"));
         return contacts;
     }
 
     public static ArrayList<Contact> getUpdatedData() {
         ArrayList<Contact> contacts = getData();
-        contacts.get(0).setPhoneNumber("11");
+        contacts.get(0).setPhoneNumber("00");
         contacts.get(0).setName("AA");
 
         contacts.get(2).setPhoneNumber("22");
