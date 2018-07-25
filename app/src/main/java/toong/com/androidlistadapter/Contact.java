@@ -31,6 +31,6 @@ public class Contact {
             return true;
         }
         Contact c = (Contact) obj;
-        return c.name.equals(((Contact) obj).getName()) && c.phoneNumber.equals(((Contact) obj).phoneNumber);
+        return c.name.equals(this.name) && c.phoneNumber.equals(this.phoneNumber);
     }
 }

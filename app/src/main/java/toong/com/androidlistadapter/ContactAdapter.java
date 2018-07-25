@@ -4,12 +4,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 class ContactAdapter extends ListAdapter<Contact, ContactAdapter.ContactViewHolder> {
+    String TAG = getClass().getSimpleName();
+
     public ContactAdapter() {
         super(DIFF_CALLBACK);
     }
@@ -23,6 +26,7 @@ class ContactAdapter extends ListAdapter<Contact, ContactAdapter.ContactViewHold
 
     @Override
     public void onBindViewHolder(ContactViewHolder holder, int position) {
+        Log.i(TAG, "onBindViewHolder " + position);
         Contact contact = getItem(position);
         holder.name.setText(contact.getName());
         holder.phoneNumber.setText(contact.getPhoneNumber());
@@ -33,15 +37,14 @@ class ContactAdapter extends ListAdapter<Contact, ContactAdapter.ContactViewHold
                 @Override
                 public boolean areItemsTheSame(
                         @NonNull Contact oldUser, @NonNull Contact newUser) {
-                    // User properties may have changed if reloaded from the DB, but ID is fixed
+                    // Normally, we will check ID here before check content because id is unique
                     return true;
                 }
 
                 @Override
                 public boolean areContentsTheSame(
                         @NonNull Contact oldUser, @NonNull Contact newUser) {
-                    // NOTE: if you use equals, your object must properly override Object#equals()
-                    // Incorrectly returning false here will result in too many animations.
+                    // check content of the item
                     return oldUser.equals(newUser);
                 }
             };
